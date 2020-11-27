@@ -1,0 +1,10 @@
+apiVersion: frontend.example.com/v1
+kind: Microfrontend
+metadata:
+  name: landing-microfrontend
+spec:
+  app_name: Landing
+  loader: URL_TO_BUNDLE
+  url: /
+  parent: ''
+  config: {}

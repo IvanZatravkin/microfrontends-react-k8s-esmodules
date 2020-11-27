@@ -1,0 +1,10 @@
+apiVersion: frontend.example.com/v1
+kind: Microfrontend
+metadata:
+  name: about-microfrontend
+spec:
+  app_name: About
+  loader: URL_TO_BUNDLE
+  url: /about
+  parent: ''
+  config: {}

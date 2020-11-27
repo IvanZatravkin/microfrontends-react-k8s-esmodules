@@ -1,0 +1,74 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.3.0
+  creationTimestamp: null
+  name: microfrontends.frontend.example.com
+spec:
+  group: frontend.example.com
+  names:
+    kind: Microfrontend
+    listKind: MicrofrontendList
+    plural: microfrontends
+    singular: microfrontend
+  scope: Namespaced
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      description: Microfrontend is the Schema for the microfrontends API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: MicrofrontendSpec defines the desired state of Microfrontend
+          properties:
+            app_name:
+              type: string
+            config:
+              additionalProperties:
+                type: string
+              type: object
+            loader:
+              type: string
+            parent:
+              type: string
+            url:
+              description: 'INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+                Important: Run "make" to regenerate code after modifying this file'
+              type: string
+          required:
+          - app_name
+          - config
+          - loader
+          - parent
+          - url
+          type: object
+        status:
+          description: MicrofrontendStatus defines the observed state of Microfrontend
+          type: object
+      type: object
+  version: v1
+  versions:
+  - name: v1
+    served: true
+    storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

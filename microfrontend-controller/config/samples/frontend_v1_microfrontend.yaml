@@ -1,0 +1,7 @@
+apiVersion: frontend.example.com/v1
+kind: Microfrontend
+metadata:
+  name: microfrontend-sample
+spec:
+  # Add fields here
+  foo: bar
