@@ -8,13 +8,12 @@ interface IComponentLoader {
 const Loading: React.ComponentType<any> = () => null;
 
 const ComponentLoader = ({ url, props }: IComponentLoader) => {
-  const [Component, setComponent] = useState<React.ComponentType<any>>(Loading);
+  const [{ Component }, setComponent] = useState<{ Component: React.ComponentType<any> }>({ Component: Loading });
   const [error, setError] = useState<Error | null>(null);
   useEffect(() => {
     import(url)
       .then((module) => {
-        const Component = module.default;
-        setComponent(Component);
+          setComponent({ Component: module.default });
       })
       .catch(setError);
   }, []);
